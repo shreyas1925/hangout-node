@@ -29,40 +29,63 @@
     <title>Document</title>
     <style>
       #video-grid {
+        width: 100%;
         display: grid;
-        grid-template-columns: repeat(auto-fill, 300px);
-        grid-auto-rows: 300px;
-        flex-grow: 1;
+        grid-gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 540px));
+        grid-template-rows: repeat(2, minmax(250px, 400px));
       }
 
       video {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      ul li {
+        list-style: none;
+        padding: 10px;
+      }
+      a {
+        text-decoration: none;
+        padding: 13px;
       }
     </style>
   </head>
-  <body>
-    <div id="video-grid bg-blue-500">
-      <h1 class="text-blue-400">Heyy bro</h1>
-    </div>
-    <div class="controls">
-      <div class="controls_block">
-        <div
-          onclick="muteUnmute()"
-          class="main__controls__button main__mute_button"
-        >
-          <i class="fas fa-microphone"></i>
-          <span>Mute</span>
-        </div>
-        <div
-          onclick="playStop()"
-          class="main__controls__button main__video_button"
-        >
-          <i class="fas fa-video"></i>
-          <span>Stop Video</span>
+  <body class="bg-gray-300 h-screen">
+    <ul class="flex justify-start bg-blue-400 h-16 items-center">
+      <li class="text-white font-semibold">
+        <a href=""> HOME</a>
+      </li>
+      <li class="text-white font-semibold">
+        <a href="">CONNECT</a>
+      </li>
+
+      <div class="controls flex justify-end">
+        <div class="controls_block flex text-white font-semibold px-3">
+          <div
+            onclick="muteUnmute()"
+            class="main__controls__button main__mute_button px-6"
+          >
+            <i class="fas fa-microphone"></i>
+            <!-- <span>Mute</span> -->
+          </div>
+          <div
+            onclick="playStop()"
+            class="main__controls__button main__video_button"
+          >
+            <i class="fas fa-video"></i>
+            <!-- <span>Stop Video</span> -->
+          </div>
         </div>
       </div>
+    </ul>
+
+    <div class="container mx-auto p-24">
+      <div id="video-grid"></div>
     </div>
+
+    <!-- that's fine upto here -->
   </body>
 </html>
