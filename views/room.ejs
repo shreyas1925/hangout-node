@@ -28,17 +28,26 @@
     <script src="script.js" defer></script>
     <title>Document</title>
     <style>
+      .vediogrid__main {
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 100px 0;
+      }
+
       #video-grid {
         width: 100%;
         display: grid;
         grid-gap: 14px;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 540px));
-        grid-template-rows: repeat(2, minmax(250px, 400px));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-rows: repeat(2, minmax(250px, 1fr));
       }
 
       video {
-        width: 100%;
-        height: 100%;
+        padding: 5px;
+        max-width: 100%;
+        min-height: 250px;
+        height: auto;
         object-fit: cover;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
@@ -51,15 +60,25 @@
         text-decoration: none;
         padding: 13px;
       }
+
+      .fas:hover {
+        cursor: pointer;
+        color: rgb(230, 64, 64);
+      }
+
+      .fas:active {
+        color: red;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
     </style>
   </head>
   <body class="bg-gray-300 h-screen">
     <ul class="flex justify-start bg-blue-400 h-16 items-center">
       <li class="text-white font-semibold">
-        <a href=""> HOME</a>
+        <a href="">HOME</a>
       </li>
       <li class="text-white font-semibold">
-        <a href="">CONNECT</a>
+        <a href="/">CONNECT</a>
       </li>
 
       <div class="controls flex justify-end">
@@ -82,8 +101,8 @@
       </div>
     </ul>
 
-    <div class="container mx-auto p-24">
-      <div id="video-grid"></div>
+    <div class="vediogrid__main">
+      <div id="video-grid">.vedio</div>
     </div>
 
     <!-- that's fine upto here -->
