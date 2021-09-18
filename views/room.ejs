@@ -73,7 +73,9 @@
     </style>
   </head>
   <body class="bg-gray-300 h-screen">
-    <ul class="flex justify-start bg-blue-400 h-16 items-center">
+    <ul
+      class="sticky top-0 z-50 flex justify-start bg-blue-400 h-16 items-center"
+    >
       <li class="text-white font-semibold">
         <a href="">HOME</a>
       </li>
@@ -99,10 +101,21 @@
           </div>
         </div>
       </div>
+      <i
+        class="
+          fa fa-user
+          text-white
+          active:text-gray-200
+          hover:text-gray-300
+          ml-3
+          flex
+          cursor-pointer
+        "
+      ></i>
     </ul>
 
     <div class="vediogrid__main">
-      <div id="video-grid">.vedio</div>
+      <div id="video-grid"></div>
     </div>
 
     <!-- that's fine upto here -->
