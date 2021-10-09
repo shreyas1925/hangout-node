@@ -40,10 +40,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log("Running on port 3000...");
-});
-
 /*  PASSPORT SETUP  */
 
 const passport = require("passport");
@@ -54,8 +50,10 @@ app.use(passport.session());
 
 app.set("view engine", "ejs");
 
-app.get("/success", (req, res) =>
-  res.render("pages/success", { user: userProfile })
+app.get(
+  "/success",
+  (req, res) => res.render("pages/success", { user: userProfile })
+  // ) => res.send(userProfile)
 );
 app.get("/error", (req, res) => res.send("error logging in"));
 
@@ -100,3 +98,7 @@ app.get(
     res.redirect("/success");
   }
 );
+
+server.listen(3000, () => {
+  console.log("Running on port 3000...");
+});
