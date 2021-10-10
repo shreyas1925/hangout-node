@@ -1,7 +1,8 @@
-const socket = io("/");
+const socket = io("/home");
 const videoGrid = document.getElementById("video-grid");
 const myPeer = new Peer(undefined, {
-  host: "/",
+  path: "/peerjs",
+  host: "/home",
   port: "3001",
 });
 const myVideo = document.createElement("video");
@@ -13,6 +14,7 @@ navigator.mediaDevices
     audio: true,
   })
   .then((stream) => {
+    myVedioStream = stream;
     addVideoStream(myVideo, stream);
 
     myPeer.on("call", (call) => {
@@ -57,3 +59,54 @@ function addVideoStream(video, stream) {
   });
   videoGrid.append(video);
 }
+
+const muteAndUnmute = () => {
+  const enabled = myVedioStream.getAudioTracks()[0].enabled;
+  if (enabled) {
+    myVedioStream.getAudioTracks()[0].enabled = false;
+    setUnmuteButton();
+  } else {
+    setMuteButton();
+    myVedioStream.getAudioTracks()[0].enabled = true;
+  }
+};
+
+const playAndStop = () => {
+  // console.log("object");
+  let enabled = myVedioStream.getVideoTracks()[0].enabled;
+  if (enabled) {
+    myVedioStream.getVideoTracks()[0].enabled = false;
+    setPlayVideo();
+  } else {
+    setStopVideo();
+    myVedioStream.getVideoTracks()[0].enabled = true;
+  }
+};
+
+const setMuteButton = () => {
+  const html = `
+    <i class="fas fa-microphone"></i>
+  `;
+  document.querySelector(".main__mute_button").innerHTML = html;
+};
+
+const setUnmuteButton = () => {
+  const html = `
+    <i class="unmute fas fa-microphone-slash"></i>
+  `;
+  document.querySelector(".main__mute_button").innerHTML = html;
+};
+
+const setStopVideo = () => {
+  const html = `
+    <i class="fas fa-video"></i>
+  `;
+  document.querySelector(".main__video_button").innerHTML = html;
+};
+
+const setPlayVideo = () => {
+  const html = `
+  <i class="stop fas fa-video-slash"></i>
+  `;
+  document.querySelector(".main__video_button").innerHTML = html;
+};

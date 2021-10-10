@@ -28,16 +28,13 @@
           <div class="col-sm-6">
             <div class="well">
               <img
-                src="<%= (encodeURI(user.photos.value)) %>"
+                src="<%= (encodeURI(user.photos[0].url)) %>"
                 alt=""
                 srcset=""
               />
               <p>
-                <strong>Id</strong>: <%= user.id %><br />
-                <strong>Email</strong>: <%= user.emails[0].value %><br />
                 <strong>Name</strong>: <%= user.displayName %>
-                <strong>Name</strong>: <%= user.provider %>
-                <strong>Name</strong>: <%= user.family_name %>
+                <strong>Email</strong>: <%= user.emails[0].value %><br />
               </p>
             </div>
           </div>

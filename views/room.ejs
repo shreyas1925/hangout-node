@@ -82,14 +82,14 @@
       <div class="controls flex justify-end">
         <div class="controls_block flex text-white font-semibold px-3">
           <div
-            onclick="muteUnmute()"
+            onclick="muteAndUnmute()"
             class="main__controls__button main__mute_button px-6"
           >
             <i class="fas fa-microphone"></i>
             <!-- <span>Mute</span> -->
           </div>
           <div
-            onclick="playStop()"
+            onclick="playAndStop()"
             class="main__controls__button main__video_button"
           >
             <i class="fas fa-video"></i>
@@ -97,20 +97,20 @@
           </div>
         </div>
       </div>
-      <i
-        class="
-          fa fa-user
-          text-white
-          active:text-gray-200
-          hover:text-gray-300
-          ml-3
-          mt-3
-          flex
-          cursor-pointer
-        "
-      >
-        <a href="/login"></a>
-      </i>
+      <a href="/login">
+        <i
+          class="
+            fa fa-user
+            text-white
+            active:text-gray-200
+            hover:text-gray-300
+            ml-3
+            flex
+            cursor-pointer
+          "
+        >
+        </i>
+      </a>
     </ul>
 
     <div class="vediogrid__main">
